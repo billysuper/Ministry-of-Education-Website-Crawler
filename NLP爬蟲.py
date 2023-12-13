@@ -8,7 +8,7 @@ def fetch_news_data(unit,num_articles):
     news_items = [] 
     count = 0
     page = 0 
-    size = 30
+    size = 100
     while(count < num_articles):
         page += 1 # 下一頁
         url = f"https://www.edu.tw/News.aspx?n=9E7AC85F1954DDA8&page={page}&PageSize={size}"
@@ -81,7 +81,7 @@ def main():
     except ValueError:
         print("請輸入有效的數字")
     except Exception as e:
-        print(f"發生錯誤: {e}")
+        print(f"發生程式錯誤: {e}")
     
 
 if __name__ == "__main__":
