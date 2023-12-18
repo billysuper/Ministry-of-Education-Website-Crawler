@@ -63,20 +63,22 @@ def fetch_news_data(unit,num_articles):
                     if count >= num_articles: # 查看資料是否足夠
                         break
                 break
-    # 轉換為JSON
-    news_json = json.dumps(news_items, ensure_ascii=False, indent=4)
-
-    # 將JSON字符串寫入文件
-    with open('C:\\Users\\jungl\Desktop\\NLP\\news_data.json', 'w', encoding='utf-8') as f:
-        f.write(news_json)
+    return news_items;
 
 def main():
     try:
         num_articles = int(input("請輸入需爬取的文章數量: "))
         unit = input("請輸入需爬取的發布單位: ")
         
-        fetch_news_data(unit, num_articles)
-        print('蒐集完成')
+        news_items = fetch_news_data(unit, num_articles)
+        
+        # 轉換為JSON
+        news_json = json.dumps(news_items, ensure_ascii=False, indent=4)
+
+        # 將JSON字符串寫入文件
+        with open('C:\\Users\\jungl\Desktop\\NLP\\news_data.json', 'w', encoding='utf-8') as f:
+            f.write(news_json)
+            print('蒐集完成')
 
     except ValueError:
         print("請輸入有效的數字")
